@@ -1,0 +1,26 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+df = pd.read_csv('your_dataset.csv')
+
+plt.figure(figsize=(10, 6))
+sns.histplot(df['numerical_column'], kde=True)
+plt.title('Distribution of Numerical Column')
+plt.xlabel('Numerical Column')
+plt.ylabel('Frequency')
+plt.show()
+
+plt.figure(figsize=(10, 6))
+sns.boxplot(x=df['categorical_column'], y=df['numerical_column'])
+plt.title('Boxplot of Numerical Column by Categorical Column')
+plt.show()
+
+plt.figure(figsize=(10, 6))
+sns.heatmap(df.corr(), annot=True, cmap='coolwarm', fmt='.2f')
+plt.title('Correlation Heatmap')
+plt.show()
+
+sns.pairplot(df, hue='categorical_column')
+plt.title('Pairplot')
+plt.show()
